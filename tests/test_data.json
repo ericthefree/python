@@ -1,0 +1,58 @@
+[
+  {
+      "server_flavor": "windows_server",
+      "server_name": "sea_win_webhost_westreg_001",
+      "server_os": "windows",
+      "server_type": "web_host",
+      "server_version": "2019"
+  },
+  {
+      "server_flavor": "windows_server",
+      "server_name": "sea_win_webhost_westreg_002",
+      "server_os": "windows",
+      "server_type": "web_host",
+      "server_version": "2019"
+  },
+  {
+      "server_flavor": "centos",
+      "server_name": "phx_linux_proxy_westreg_001",
+      "server_os": "linux",
+      "server_type": "proxy_server",
+      "server_version": "8(2004)"
+  },
+  {
+      "server_flavor": "centos",
+      "server_name": "phx_linux_proxy_westreg_002",
+      "server_os": "linux",
+      "server_type": "proxy_server",
+      "server_version": "8(2004)"
+  },
+  {
+      "server_flavor": "debian",
+      "server_name": "atl_linux_router_eastreg_001",
+      "server_os": "linux",
+      "server_type": "network_router",
+      "server_version": "10.6"
+  },
+  {
+      "server_flavor": "debian",
+      "server_name": "atl_linux_router_eastreg_002",
+      "server_os": "linux",
+      "server_type": "network_router",
+      "server_version": "10.6"
+  },
+  {
+      "server_flavor": "catalina_server",
+      "server_name": "bos_mac_vs_eastreg_001",
+      "server_os": "mac_osx",
+      "server_type": "virtual_server_host",
+      "server_version": "10.15"
+  },
+  {
+      "server_flavor": "catalina_server",
+      "server_name": "bos_mac_vs_eastreg_002",
+      "server_os": "mac_osx",
+      "server_type": "virtual_server_host",
+      "server_version": "10.15"
+  }
+]

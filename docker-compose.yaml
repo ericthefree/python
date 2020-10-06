@@ -1,0 +1,53 @@
+version: '3'
+services:
+  mongo_db:
+    image: "mongodb_apidb"
+    restart: unless-stopped
+    container_name: api_db
+    command: mongod --auth
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: mongodbuser
+      MONGO_INITDB_ROOT_PASSWORD: password_unsecure
+      MONGO_INITDB_DATABASE: api_db
+      MONGO_DATA_DIR: /data/db
+      MONGO_LOG?DIR: /dev/null
+    volumes:
+      - mongodb_data:/data/db
+    networks:
+      - backend
+    ports:
+      - "27017:27017"
+  api_app:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: api_app
+    image: api_app:1.0.0
+    restart: unless-stopped
+    environment:
+      APP_ENV: "prod"
+      APP_DEBUG: "False"
+      APP_PORT: 5001
+      MONGODB_DATABASE: api_db
+      MONGODB_USERNAME: mongodbuser
+      MONGODB_PASSWORD: password_unsecure
+      MONGODB_HOSTNAME: mongo_db
+    volumes:
+      - app_data_vol:/api_app_data
+    depends_on:
+      - mongo_db
+    ports:
+      - "5001:5001"
+    networks:
+      - frontend
+      - backend
+networks:
+  frontend:
+    driver: bridge
+  backend:
+    driver: bridge
+volumes:
+  mongodb_data:
+    driver: local
+  app_data_vol:
+    driver: local
